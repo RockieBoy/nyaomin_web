@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Riko — Visual Design Portfolio",
-  description: "Portfolio of Riko, a visual communication designer who crafts playful, intentional design experiences.",
+  title: "Visual Design Portfolio",
+  description: "A visual communication designer's portfolio, crafting playful, intentional design experiences.",
 };
 
 export default function RootLayout({

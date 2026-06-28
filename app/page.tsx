@@ -117,18 +117,15 @@ function Nav({ onNav }: { onNav: (id: string) => void }) {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "py-3 shadow-sm" : "py-5"
       }`}
-      style={{ background: scrolled ? "rgba(247,243,236,0.92)" : "transparent", backdropFilter: scrolled ? "blur(10px)" : "none" }}
+      style={{ background: scrolled ? "rgba(242,234,211,0.94)" : "transparent", backdropFilter: scrolled ? "blur(10px)" : "none" }}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <button
-          onClick={() => onNav("home")}
-          className="font-display text-xl text-[#4A7C59] italic tracking-tight"
-        >
-          riko.
+        <button onClick={() => onNav("home")} className="flex items-center gap-2">
+          <span className="wax-seal w-9 h-9 text-sm text-[#F0C878]">✦</span>
         </button>
-        <nav className="flex gap-8 text-sm font-medium text-[#3D3D38]">
+        <nav className="flex gap-8 text-sm font-medium text-[#4A3B2A]">
           {["about", "portfolio", "contact"].map((id) => (
-            <button key={id} onClick={() => onNav(id)} className="capitalize hover:text-[#4A7C59] transition-colors">
+            <button key={id} onClick={() => onNav(id)} className="capitalize hover:text-[#5A3A26] transition-colors">
               {id}
             </button>
           ))}
@@ -140,49 +137,54 @@ function Nav({ onNav }: { onNav: (id: string) => void }) {
 
 function HeroSection() {
   return (
-    <section id="home" className="min-h-screen relative flex items-center overflow-hidden" style={{ background: "var(--cream)" }}>
+    <section id="home" className="min-h-screen relative flex items-center overflow-hidden bg-grid-paper pt-10">
       {/* Floating bg decorations */}
       <div className="absolute inset-0 pointer-events-none select-none">
+        <span className="star-shape w-6 h-6 absolute top-28 left-[14%] twinkle" />
+        <span className="star-shape w-4 h-4 absolute top-[60%] right-[8%] twinkle" style={{ animationDelay: "1s" }} />
+        <span className="star-shape w-5 h-5 absolute bottom-28 left-[6%] twinkle" style={{ animationDelay: "1.8s" }} />
         <Image src="/assets/Layer_7.png" alt="" width={180} height={180}
-          className="absolute top-12 right-16 sticker float opacity-80" style={{ animationDelay: "0s" }} />
+          className="absolute top-12 right-16 sticker float opacity-90" style={{ animationDelay: "0s" }} />
         <Image src="/assets/20.png" alt="" width={120} height={120}
-          className="absolute top-32 left-8 sticker drift opacity-70" style={{ animationDelay: "1.2s" }} />
+          className="absolute top-32 left-8 sticker drift opacity-80" style={{ animationDelay: "1.2s" }} />
         <Image src="/assets/10.png" alt="" width={90} height={90}
-          className="absolute bottom-40 left-20 sticker float opacity-60" style={{ animationDelay: "2.1s" }} />
+          className="absolute bottom-40 left-20 sticker float opacity-70" style={{ animationDelay: "2.1s" }} />
         <Image src="/assets/Layer_8.png" alt="" width={100} height={100}
-          className="absolute bottom-20 right-32 sticker wiggle opacity-75" style={{ animationDelay: "0.8s" }} />
+          className="absolute bottom-20 right-32 sticker wiggle opacity-85" style={{ animationDelay: "0.8s" }} />
         <Image src="/assets/10.png" alt="" width={60} height={60}
-          className="absolute top-1/2 right-8 sticker drift opacity-50" style={{ animationDelay: "3s" }} />
+          className="absolute top-1/2 right-8 sticker drift opacity-60" style={{ animationDelay: "3s" }} />
         <Image src="/assets/Layer_9.png" alt="" width={80} height={80}
-          className="absolute top-20 left-1/3 sticker float opacity-50" style={{ animationDelay: "1.5s" }} />
+          className="absolute top-20 left-1/3 sticker float opacity-60" style={{ animationDelay: "1.5s" }} />
       </div>
 
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-32 relative z-10">
         {/* Text */}
         <div>
-          <p className="font-mono text-xs tracking-widest text-[#7A9E6F] uppercase mb-4">Visual Communication Designer</p>
-          <h1 className="font-display text-6xl lg:text-8xl text-[#1C1C1A] leading-tight mb-6">
+          <span className="scallop-note inline-block font-mono text-xs tracking-widest text-[#5E6B33] uppercase mb-5">
+            Visual Communication Designer
+          </span>
+          <h1 className="font-display text-6xl lg:text-8xl text-[#3E2A1C] leading-[0.95] mb-6">
             Design that<br />
-            <span className="italic text-[#4A7C59]">delights</span><br />
-            & endures.
+            <span className="italic text-[#6E3024]">delights</span><br />
+            &amp; endures.
           </h1>
-          <p className="text-[#3D3D38] text-lg leading-relaxed max-w-md mb-8" style={{ fontWeight: 300 }}>
-            Hi, I&apos;m Riko — a designer drawn to playful forms, tactile texture,
+          <p className="text-[#4A3B2A] text-lg leading-relaxed max-w-md mb-8" style={{ fontWeight: 300 }}>
+            Hi there — I&apos;m a designer drawn to playful forms, tactile texture,
             and stories told through shape and color. I believe good design should make you
             feel something before you understand it.
           </p>
           <div className="flex gap-4 flex-wrap">
             <button
               onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-6 py-3 rounded-full text-sm font-medium text-white transition-all hover:opacity-90 active:scale-95"
-              style={{ background: "var(--green-deep)" }}
+              className="px-6 py-3 rounded-full text-sm font-medium text-[var(--cream)] transition-all hover:opacity-90 active:scale-95"
+              style={{ background: "var(--brown)" }}
             >
               See My Work
             </button>
             <button
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-6 py-3 rounded-full text-sm font-medium border transition-all hover:bg-[#4A7C59] hover:text-white hover:border-[#4A7C59]"
-              style={{ borderColor: "var(--green-deep)", color: "var(--green-deep)" }}
+              className="px-6 py-3 rounded-full text-sm font-medium border-2 transition-all hover:bg-[#5A3A26] hover:text-[var(--cream)]"
+              style={{ borderColor: "var(--brown)", color: "var(--brown)" }}
             >
               Get in Touch
             </button>
@@ -206,8 +208,8 @@ function HeroSection() {
 
       {/* Marquee strip */}
       <div
-        className="absolute bottom-0 left-0 right-0 py-3 overflow-hidden"
-        style={{ background: "var(--green-deep)", color: "var(--cream)" }}
+        className="absolute bottom-0 left-0 right-0 py-3 overflow-hidden border-t-2"
+        style={{ background: "var(--brown)", color: "var(--cream)", borderColor: "var(--brown-deep)" }}
       >
         <div className="flex whitespace-nowrap marquee-track">
           {Array(6).fill(["Brand Identity", "✦", "Packaging Design", "✦", "Illustration", "✦", "Editorial", "✦", "Character Design", "✦", "Surface Design", "✦"]).flat().map((t, i) => (
@@ -220,66 +222,70 @@ function HeroSection() {
 }
 
 function AboutSection() {
+  const skills = [
+    { label: "Brand Identity", pct: 92 },
+    { label: "Editorial Design", pct: 85 },
+    { label: "Character Design", pct: 90 },
+    { label: "Time Management", pct: 78 },
+  ];
   return (
-    <section id="about" className="py-28 relative overflow-hidden" style={{ background: "#F0EDE5" }}>
+    <section id="about" className="py-28 relative overflow-hidden bg-dots-olive">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         {/* Image side */}
-        <div className="relative">
-          <div
-            className="w-72 h-72 lg:w-96 lg:h-96 mx-auto rounded-full relative overflow-visible"
-            style={{ background: "var(--green-soft)" }}
-          >
-            <Image
-              src="/assets/Layer_15.png"
-              alt="Lumie resting"
-              width={320}
-              height={260}
-              className="absolute -bottom-2 left-1/2 -translate-x-1/2 sticker float z-10"
-              style={{ animationDelay: "0.5s" }}
-            />
-            <Image
-              src="/assets/Layer_7.png"
-              alt="Clover"
-              width={100}
-              height={100}
-              className="absolute -top-6 -right-6 sticker drift z-20"
-              style={{ animationDelay: "1s" }}
-            />
-            <Image
-              src="/assets/20.png"
-              alt="Stars"
-              width={90}
-              height={90}
-              className="absolute -bottom-4 -left-6 sticker float z-20"
-              style={{ animationDelay: "2s" }}
-            />
+        <div className="relative flex justify-center">
+          <div className="polaroid w-72 lg:w-80 -rotate-2 relative">
+            <div className="relative w-full aspect-square overflow-hidden">
+              <Image src="/assets/Layer_15.png" alt="Self portrait" fill sizes="(max-width: 1024px) 288px, 320px" className="object-cover" />
+            </div>
+            <p className="font-display italic text-center text-[#3E2A1C] mt-3 text-lg">Self Portrait ✦</p>
           </div>
+          <span className="star-shape w-8 h-8 absolute -top-4 -right-2 twinkle" />
+          <Image
+            src="/assets/20.png"
+            alt="Stars"
+            width={80}
+            height={80}
+            className="absolute -bottom-4 -left-6 sticker float z-20"
+            style={{ animationDelay: "2s" }}
+          />
         </div>
 
         {/* Text side */}
         <div className="reveal">
-          <p className="font-mono text-xs tracking-widest text-[#7A9E6F] uppercase mb-3">About Me</p>
-          <h2 className="font-display text-5xl text-[#1C1C1A] mb-6 leading-tight">
+          <span className="scallop-note inline-block font-mono text-xs tracking-widest text-[#5E6B33] uppercase mb-4">About Me</span>
+          <h2 className="font-display text-5xl text-[#3E2A1C] mb-6 leading-tight">
             Curious designer,<br />
-            <span className="italic text-[#4A7C59]">collector of textures.</span>
+            <span className="italic text-[#6E3024]">collector of textures.</span>
           </h2>
-          <p className="text-[#3D3D38] leading-relaxed mb-4" style={{ fontWeight: 300 }}>
+          <p className="text-[#4A3B2A] leading-relaxed mb-4" style={{ fontWeight: 300 }}>
             I&apos;m a visual communication design student based in Bandung, Indonesia.
             My practice lives at the intersection of brand identity, editorial design,
             and character work — with a recurring obsession with tactile surfaces and
             things that feel good to hold.
           </p>
-          <p className="text-[#3D3D38] leading-relaxed mb-6" style={{ fontWeight: 300 }}>
+          <p className="text-[#4A3B2A] leading-relaxed mb-6" style={{ fontWeight: 300 }}>
             I believe design is problem-solving dressed up as feeling. I approach every
             brief by asking: what should this feel like before the viewer reads a single word?
             That emotional first impression is the hardest and most important thing to get right.
           </p>
 
-          <div className="bg-white rounded-2xl p-6 mb-6" style={{ boxShadow: "4px 4px 0 #C8DFBA" }}>
-            <p className="font-display text-lg text-[#4A7C59] italic leading-snug">
+          <div className="bg-[var(--cream)] rounded-sm p-6 mb-8" style={{ boxShadow: "4px 4px 0 var(--olive-deep)" }}>
+            <p className="font-display text-lg text-[#6E3024] italic leading-snug">
               &ldquo;Design should make you feel something before you understand it.&rdquo;
             </p>
-            <p className="font-mono text-xs text-[#7A9E6F] mt-2">— My design philosophy</p>
+            <p className="font-mono text-xs text-[#5E6B33] mt-2">— My design philosophy</p>
+          </div>
+
+          <p className="font-display text-2xl text-[#3E2A1C] mb-4">Social Skills</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
+            {skills.map(({ label, pct }) => (
+              <div key={label}>
+                <p className="font-mono text-xs text-[#3E2A1C] uppercase tracking-wide mb-1.5">{label}</p>
+                <div className="skill-track">
+                  <div className="skill-fill" style={{ width: `${pct}%` }} />
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="grid grid-cols-2 gap-4">
@@ -290,8 +296,8 @@ function AboutSection() {
               { label: "Seeking", val: "Creative internships & collabs" },
             ].map(({ label, val }) => (
               <div key={label}>
-                <p className="font-mono text-xs text-[#7A9E6F] uppercase tracking-wide">{label}</p>
-                <p className="text-sm text-[#1C1C1A] font-medium mt-0.5">{val}</p>
+                <p className="font-mono text-xs text-[#5E6B33] uppercase tracking-wide">{label}</p>
+                <p className="text-sm text-[#3E2A1C] font-medium mt-0.5">{val}</p>
               </div>
             ))}
           </div>
@@ -304,11 +310,11 @@ function AboutSection() {
 function ProjectCard({ project, onClick }: { project: typeof projects[0]; onClick: () => void }) {
   return (
     <article
-      className="rounded-2xl overflow-hidden cursor-pointer card-hover reveal"
-      style={{ background: project.color, boxShadow: "0 2px 12px rgba(0,0,0,0.08)" }}
+      className="rounded-sm overflow-hidden cursor-pointer card-hover reveal border-2"
+      style={{ background: project.color, boxShadow: "3px 4px 0 rgba(74,58,42,0.18)", borderColor: "var(--brown-deep)" }}
       onClick={onClick}
     >
-      <div className="aspect-[4/3] relative overflow-hidden">
+      <div className="aspect-[4/3] relative overflow-hidden border-b-2" style={{ borderColor: "var(--brown-deep)" }}>
         <Image
           src={project.hero}
           alt={project.title}
@@ -320,10 +326,10 @@ function ProjectCard({ project, onClick }: { project: typeof projects[0]; onClic
       <div className="p-6">
         <div className="flex items-start justify-between mb-3">
           <div>
-            <p className="font-mono text-xs text-[#7A9E6F] uppercase tracking-wider mb-1">{project.category} · {project.year}</p>
-            <h3 className="font-display text-xl text-[#1C1C1A]">{project.title}</h3>
+            <p className="font-mono text-xs text-[#5E6B33] uppercase tracking-wider mb-1">{project.category} · {project.year}</p>
+            <h3 className="font-display text-xl text-[#3E2A1C]">{project.title}</h3>
           </div>
-          <span className="text-[#4A7C59] text-xl mt-1">→</span>
+          <span className="text-[#6E3024] text-xl mt-1">→</span>
         </div>
         <div className="flex flex-wrap gap-2">
           {project.tags.map((t) => <span key={t} className="tag">{t}</span>)}
@@ -335,12 +341,12 @@ function ProjectCard({ project, onClick }: { project: typeof projects[0]; onClic
 
 function PortfolioSection({ onOpenProject }: { onOpenProject: (p: typeof projects[0]) => void }) {
   return (
-    <section id="portfolio" className="py-28" style={{ background: "var(--cream)" }}>
+    <section id="portfolio" className="py-28 bg-grid-paper">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-end justify-between mb-14 reveal">
           <div>
-            <p className="font-mono text-xs tracking-widest text-[#7A9E6F] uppercase mb-3">Selected Work</p>
-            <h2 className="font-display text-5xl text-[#1C1C1A]">Portfolio</h2>
+            <span className="scallop-note inline-block font-mono text-xs tracking-widest text-[#5E6B33] uppercase mb-3">Selected Work</span>
+            <h2 className="font-display text-5xl text-[#3E2A1C]">Portfolio</h2>
           </div>
           <Image src="/assets/Layer_8.png" alt="" width={70} height={70} className="sticker wiggle opacity-80" />
         </div>
@@ -377,33 +383,33 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
   return (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-      style={{ background: "rgba(28,28,26,0.7)", backdropFilter: "blur(8px)" }}
+      style={{ background: "rgba(46,35,22,0.75)", backdropFilter: "blur(8px)" }}
       onClick={onClose}
     >
       <div
-        className="w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl"
-        style={{ background: "var(--cream)" }}
+        className="w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-sm border-2"
+        style={{ background: "var(--cream)", borderColor: "var(--brown-deep)" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Hero */}
-        <div className="relative aspect-[16/7] rounded-t-3xl overflow-hidden" style={{ background: project.color }}>
+        <div className="relative aspect-[16/7] overflow-hidden border-b-2" style={{ background: project.color, borderColor: "var(--brown-deep)" }}>
           <Image src={project.thumbs[activeImg]} alt={project.title} fill className="object-contain p-10" />
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-white text-lg font-bold"
-            style={{ background: "rgba(28,28,26,0.5)" }}
+            className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold"
+            style={{ background: "var(--brown-deep)", color: "var(--cream)" }}
           >
             ✕
           </button>
         </div>
 
         {/* Thumb strip */}
-        <div className="flex gap-3 p-6 border-b border-[#E0DDD6]">
+        <div className="flex gap-3 p-6 border-b-2" style={{ borderColor: "rgba(74,58,42,0.18)" }}>
           {project.thumbs.map((src, i) => (
             <button
               key={i}
               onClick={() => setActiveImg(i)}
-              className={`w-16 h-16 rounded-xl overflow-hidden border-2 transition-all ${activeImg === i ? "border-[#4A7C59]" : "border-transparent opacity-60 hover:opacity-80"}`}
+              className={`w-16 h-16 rounded-sm overflow-hidden border-2 transition-all ${activeImg === i ? "border-[#6E3024]" : "border-transparent opacity-60 hover:opacity-80"}`}
               style={{ background: project.color }}
             >
               <Image src={src} alt="" width={64} height={64} className="object-contain p-1" />
@@ -413,19 +419,19 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
 
         {/* Content */}
         <div className="p-8">
-          <p className="font-mono text-xs text-[#7A9E6F] uppercase tracking-widest mb-2">{project.category} · {project.year}</p>
-          <h2 className="font-display text-4xl text-[#1C1C1A] mb-6">{project.title}</h2>
+          <p className="font-mono text-xs text-[#5E6B33] uppercase tracking-widest mb-2">{project.category} · {project.year}</p>
+          <h2 className="font-display text-4xl text-[#3E2A1C] mb-6">{project.title}</h2>
           <div className="flex flex-wrap gap-2 mb-8">
             {project.tags.map((t) => <span key={t} className="tag">{t}</span>)}
           </div>
 
           <div className="grid grid-cols-1 gap-6">
             {sections.map(({ label, val }) => (
-              <div key={label} className="flex gap-6 py-5 border-b border-[#E0DDD6] last:border-0">
+              <div key={label} className="flex gap-6 py-5 border-b last:border-0" style={{ borderColor: "rgba(74,58,42,0.18)" }}>
                 <div className="w-36 flex-shrink-0">
-                  <p className="font-mono text-xs text-[#7A9E6F] uppercase tracking-wide leading-relaxed">{label}</p>
+                  <p className="font-mono text-xs text-[#5E6B33] uppercase tracking-wide leading-relaxed">{label}</p>
                 </div>
-                <p className="text-[#3D3D38] leading-relaxed text-sm flex-1">{val}</p>
+                <p className="text-[#4A3B2A] leading-relaxed text-sm flex-1">{val}</p>
               </div>
             ))}
           </div>
@@ -438,59 +444,61 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
 function ContactSection() {
   const [sent, setSent] = useState(false);
   return (
-    <section id="contact" className="py-28 relative overflow-hidden" style={{ background: "#2D4A38", color: "var(--cream)" }}>
+    <section id="contact" className="py-28 relative overflow-hidden torn-edge-top" style={{ background: "var(--brown-deep)", color: "var(--cream)" }}>
       {/* Decorative */}
       <div className="absolute inset-0 pointer-events-none select-none">
+        <span className="star-shape w-5 h-5 absolute top-24 left-[20%] twinkle" />
+        <span className="star-shape w-4 h-4 absolute bottom-24 right-[18%] twinkle" style={{ animationDelay: "1.4s" }} />
         <Image src="/assets/Layer_13.png" alt="" width={140} height={140}
-          className="absolute top-12 right-16 sticker float opacity-40" />
+          className="absolute top-12 right-16 sticker float opacity-50" />
         <Image src="/assets/Layer_7.png" alt="" width={100} height={100}
-          className="absolute bottom-16 left-12 sticker drift opacity-30" />
+          className="absolute bottom-16 left-12 sticker drift opacity-40" />
         <Image src="/assets/20.png" alt="" width={80} height={80}
-          className="absolute top-1/2 left-1/4 sticker wiggle opacity-20" />
+          className="absolute top-1/2 left-1/4 sticker wiggle opacity-30" />
       </div>
 
-      <div className="max-w-2xl mx-auto px-6 text-center relative z-10 reveal">
+      <div className="max-w-2xl mx-auto px-6 text-center relative z-10 reveal pt-8">
         <Image src="/assets/Layer_8.png" alt="" width={80} height={80}
           className="mx-auto mb-6 sticker wiggle" />
-        <p className="font-mono text-xs tracking-widest text-[#C8DFBA] uppercase mb-4">Let&apos;s Talk</p>
+        <span className="scallop-note inline-block font-mono text-xs tracking-widest text-[#5E6B33] uppercase mb-4">Let&apos;s Talk</span>
         <h2 className="font-display text-5xl lg:text-6xl mb-6 leading-tight" style={{ color: "var(--cream)" }}>
           Got a project<br />
-          <span className="italic text-[#C8DFBA]">in mind?</span>
+          <span className="italic text-[#E0A93C]">in mind?</span>
         </h2>
-        <p className="text-[#C8DFBA] leading-relaxed mb-10" style={{ fontWeight: 300 }}>
+        <p className="text-[#D8CBAE] leading-relaxed mb-10" style={{ fontWeight: 300 }}>
           I&apos;m currently open to internships, collaborations, and freelance projects.
           Whether you have a full brief or just an idea — I&apos;d love to hear from you.
         </p>
 
         {sent ? (
-          <div className="rounded-2xl p-8" style={{ background: "rgba(255,255,255,0.08)" }}>
-            <p className="font-display text-3xl text-[#C8DFBA] italic mb-2">Message sent!</p>
-            <p className="text-sm text-[#C8DFBA] opacity-70">I&apos;ll get back to you within a few days ✦</p>
+          <div className="rounded-sm p-8 border-2" style={{ background: "rgba(255,255,255,0.06)", borderColor: "rgba(224,169,60,0.4)" }}>
+            <p className="font-display text-3xl text-[#E0A93C] italic mb-2">Message sent!</p>
+            <p className="text-sm text-[#D8CBAE] opacity-80">I&apos;ll get back to you within a few days ✦</p>
           </div>
         ) : (
-          <div className="rounded-2xl p-8 space-y-4" style={{ background: "rgba(255,255,255,0.06)" }}>
+          <div className="rounded-sm p-8 space-y-4 border-2" style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(224,169,60,0.25)" }}>
             <input
               type="text"
               placeholder="Your name"
-              className="w-full rounded-xl px-4 py-3 text-sm outline-none placeholder:text-[#7A9E6F]"
-              style={{ background: "rgba(255,255,255,0.08)", color: "var(--cream)", border: "1px solid rgba(200,223,186,0.2)" }}
+              className="w-full rounded-sm px-4 py-3 text-sm outline-none placeholder:text-[#9C8F73]"
+              style={{ background: "rgba(255,255,255,0.07)", color: "var(--cream)", border: "1px solid rgba(224,169,60,0.25)" }}
             />
             <input
               type="email"
               placeholder="Email address"
-              className="w-full rounded-xl px-4 py-3 text-sm outline-none placeholder:text-[#7A9E6F]"
-              style={{ background: "rgba(255,255,255,0.08)", color: "var(--cream)", border: "1px solid rgba(200,223,186,0.2)" }}
+              className="w-full rounded-sm px-4 py-3 text-sm outline-none placeholder:text-[#9C8F73]"
+              style={{ background: "rgba(255,255,255,0.07)", color: "var(--cream)", border: "1px solid rgba(224,169,60,0.25)" }}
             />
             <textarea
               rows={4}
               placeholder="Tell me about your project…"
-              className="w-full rounded-xl px-4 py-3 text-sm outline-none placeholder:text-[#7A9E6F] resize-none"
-              style={{ background: "rgba(255,255,255,0.08)", color: "var(--cream)", border: "1px solid rgba(200,223,186,0.2)" }}
+              className="w-full rounded-sm px-4 py-3 text-sm outline-none placeholder:text-[#9C8F73] resize-none"
+              style={{ background: "rgba(255,255,255,0.07)", color: "var(--cream)", border: "1px solid rgba(224,169,60,0.25)" }}
             />
             <button
               onClick={() => setSent(true)}
-              className="w-full py-4 rounded-xl font-medium text-sm transition-all hover:opacity-90 active:scale-[0.98]"
-              style={{ background: "var(--green-soft)", color: "var(--green-deep)" }}
+              className="w-full py-4 rounded-sm font-medium text-sm transition-all hover:opacity-90 active:scale-[0.98]"
+              style={{ background: "var(--gold)", color: "var(--brown-deep)" }}
             >
               Send Message →
             </button>
@@ -499,13 +507,13 @@ function ContactSection() {
 
         <div className="flex justify-center gap-8 mt-12 text-sm">
           {[
-            { label: "Email", val: "riko@design.id" },
-            { label: "Instagram", val: "@rikodesigns" },
-            { label: "LinkedIn", val: "linkedin.com/in/riko" },
+            { label: "Email", val: "hello@design.id" },
+            { label: "Instagram", val: "@designstudio" },
+            { label: "LinkedIn", val: "linkedin.com/in/designer" },
           ].map(({ label, val }) => (
             <div key={label} className="text-center">
-              <p className="font-mono text-xs text-[#7A9E6F] uppercase tracking-wide mb-1">{label}</p>
-              <p className="text-[#C8DFBA] text-xs">{val}</p>
+              <p className="font-mono text-xs text-[#B8A878] uppercase tracking-wide mb-1">{label}</p>
+              <p className="text-[#D8CBAE] text-xs">{val}</p>
             </div>
           ))}
         </div>
@@ -516,9 +524,9 @@ function ContactSection() {
 
 function Footer() {
   return (
-    <footer className="py-6 text-center" style={{ background: "#1C1C1A", color: "#7A9E6F" }}>
+    <footer className="py-6 text-center" style={{ background: "#2E2316", color: "#B8A878" }}>
       <p className="font-mono text-xs tracking-widest">
-        © 2025 Riko — Portfolio Design / Visual Communication
+        © 2025 Portfolio Design / Visual Communication
       </p>
     </footer>
   );

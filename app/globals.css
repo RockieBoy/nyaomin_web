@@ -136,6 +136,7 @@ body {
 .scallop-note {
   background: var(--cream);
   position: relative;
+  z-index: 0;
   padding: 0.4rem 1.1rem;
   border-radius: 4px;
   box-shadow:
@@ -146,13 +147,12 @@ body {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: -1;
+  border-radius: 4px;
   background-image: radial-gradient(circle at 6px 6px, transparent 5px, var(--cream) 5.5px);
   background-size: 12px 12px;
   background-position: -6px -6px;
   pointer-events: none;
-  mix-blend-mode: normal;
-  -webkit-mask-image:
-    linear-gradient(#000, #000);
 }
 
 /* Polaroid-style photo frame */

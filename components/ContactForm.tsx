@@ -6,37 +6,43 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <div className="rounded-sm p-8 border-2" style={{ background: "rgba(255,255,255,0.06)", borderColor: "rgba(224,169,60,0.4)" }}>
-        <p className="font-display text-3xl text-[#E0A93C] italic mb-2">Message sent!</p>
-        <p className="text-sm text-[#D8CBAE] opacity-80">I&apos;ll get back to you within a few days ✦</p>
+      <div className="rounded-sm p-8 border-2" style={{ background: "var(--cream)", borderColor: "var(--brown-deep)" }}>
+        <p className="font-display text-3xl text-[#3E2A1C] italic mb-2">Message sent!</p>
+        <p className="text-sm text-[#4A3B2A] opacity-80">I&apos;ll get back to you within a few days ✦</p>
       </div>
     );
   }
 
+  const fieldStyle = {
+    background: "var(--cream)",
+    color: "var(--brown-deep)",
+    border: `1px solid var(--brown-deep)`,
+  };
+
   return (
-    <div className="rounded-sm p-8 space-y-4 border-2" style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(224,169,60,0.25)" }}>
+    <div className="rounded-sm p-8 space-y-4 border-2" style={{ background: "rgba(242,234,211,0.6)", borderColor: "var(--brown-deep)" }}>
       <input
         type="text"
         placeholder="Your name"
-        className="w-full rounded-sm px-4 py-3 text-sm outline-none placeholder:text-[#9C8F73]"
-        style={{ background: "rgba(255,255,255,0.07)", color: "var(--cream)", border: "1px solid rgba(224,169,60,0.25)" }}
+        className="w-full rounded-sm px-4 py-3 text-sm outline-none placeholder:text-[#9C8057]"
+        style={fieldStyle}
       />
       <input
         type="email"
         placeholder="Email address"
-        className="w-full rounded-sm px-4 py-3 text-sm outline-none placeholder:text-[#9C8F73]"
-        style={{ background: "rgba(255,255,255,0.07)", color: "var(--cream)", border: "1px solid rgba(224,169,60,0.25)" }}
+        className="w-full rounded-sm px-4 py-3 text-sm outline-none placeholder:text-[#9C8057]"
+        style={fieldStyle}
       />
       <textarea
         rows={4}
         placeholder="Tell me about your project…"
-        className="w-full rounded-sm px-4 py-3 text-sm outline-none placeholder:text-[#9C8F73] resize-none"
-        style={{ background: "rgba(255,255,255,0.07)", color: "var(--cream)", border: "1px solid rgba(224,169,60,0.25)" }}
+        className="w-full rounded-sm px-4 py-3 text-sm outline-none placeholder:text-[#9C8057] resize-none"
+        style={fieldStyle}
       />
       <button
         onClick={() => setSent(true)}
         className="w-full py-4 rounded-sm font-medium text-sm transition-all hover:opacity-90 active:scale-[0.98]"
-        style={{ background: "var(--gold)", color: "var(--brown-deep)" }}
+        style={{ background: "var(--brown-deep)", color: "var(--cream)" }}
       >
         Send Message →
       </button>

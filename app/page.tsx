@@ -29,24 +29,7 @@ export default function Home() {
     <>
       <Nav />
       <main>
-        <section className="min-h-screen relative flex items-center overflow-hidden pt-10">
-          {/* Looping background video (muted, no controls — behaves like a GIF) */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/assets/video.mp4" type="video/mp4" />
-          </video>
-          {/* TEMP: overlay disabled to preview the background video at full opacity.
-              Restore by uncommenting:
-          <div className="absolute inset-0" style={{ background: "rgba(242,234,211,0.62)" }} />
-          */}
-
-          {/* TEMP: hero text, buttons, and decorative assets hidden while previewing
-              the background video. Restore by uncommenting this whole block.
+        <section className="min-h-screen bg-grid-paper relative flex items-center overflow-hidden pt-10">
           <div className="absolute inset-0 pointer-events-none select-none">
             <span className="star-shape w-6 h-6 absolute top-28 left-[14%] twinkle" />
             <span className="star-shape w-4 h-4 absolute top-[60%] right-[8%] twinkle" style={{ animationDelay: "1s" }} />
@@ -83,14 +66,14 @@ export default function Home() {
               <div className="flex gap-4 flex-wrap">
                 <Link
                   href="/portfolio"
-                  className="px-6 py-3 rounded-full text-sm font-medium text-[var(--cream)] transition-all hover:opacity-90 active:scale-95"
+                  className="px-6 py-3 rounded-full text-sm font-medium text-(--cream) transition-all hover:opacity-90 active:scale-95"
                   style={{ background: "var(--brown)" }}
                 >
                   See My Work
                 </Link>
                 <Link
                   href="/contact"
-                  className="px-6 py-3 rounded-full text-sm font-medium border-2 transition-all hover:bg-[#5A3A26] hover:text-[var(--cream)]"
+                  className="px-6 py-3 rounded-full text-sm font-medium border-2 transition-all hover:bg-[#5A3A26] hover:text-(--cream)"
                   style={{ borderColor: "var(--brown)", color: "var(--brown)" }}
                 >
                   Get in Touch
@@ -98,7 +81,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative h-96 lg:h-[520px] hidden lg:block">
+            <div className="relative h-96 lg:h-130 hidden lg:block">
               <Image src="/assets/Layer_14.png" alt="Lumie character" width={280} height={340}
                 className="absolute bottom-0 left-1/2 -translate-x-1/2 sticker float z-20" />
               <Image src="/assets/2.png" alt="Bear cookie" width={130} height={130}
@@ -111,7 +94,6 @@ export default function Home() {
                 className="absolute top-1/3 right-0 sticker drift z-10" style={{ animationDelay: "2.5s" }} />
             </div>
           </div>
-          */}
 
           {/* Marquee strip */}
           <div

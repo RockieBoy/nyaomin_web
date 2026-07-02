@@ -8,6 +8,15 @@ export const metadata: Metadata = {
   description: "About La Nina Cantika Aghna K., a concept art, illustration, and character design artist.",
 };
 
+const experiences = [
+  { period: "2020–2025", place: "Freelancer", roles: "Illustrator, Concept Artist, Character Designer" },
+  { period: "2020–2025", place: "Animoishii Studio", roles: "Moderator Staff, Owner, Main Artist" },
+  { period: "2024", place: "Cryspy (Pre-Production)", roles: "Character Designing, Concept Artist" },
+  { period: "2024–2025", place: "DIVERSITY Apparel", roles: "Main Artist, Employee" },
+  { period: "2025", place: "Nécho", roles: "Co-Founder, Illustrator" },
+  { period: "2025–Now", place: "Studio Hissho", roles: "Illustrator, Mentor Intern" },
+];
+
 const skills = [
   { label: "Team Work", pct: 80 },
   { label: "Time Management", pct: 75 },
@@ -15,14 +24,6 @@ const skills = [
   { label: "Work Ethic", pct: 55 },
 ];
 
-type Tool = { label: string; abbr: string; bg: string; color: string; border?: string };
-
-const tools: Tool[] = [
-  { label: "Procreate", abbr: "Pr", bg: "#FFFFFF", color: "#1A1A1A", border: "#D8D0BE" },
-  { label: "Illustrator", abbr: "Ai", bg: "#1A0C02", color: "#FF7C00" },
-  { label: "Photoshop", abbr: "Ps", bg: "#001E36", color: "#31A8FF" },
-  { label: "ibisPaint", abbr: "iP", bg: "#101010", color: "#FFFFFF" },
-];
 
 export default function AboutPage() {
   return (
@@ -34,24 +35,24 @@ export default function AboutPage() {
           <div className="bg-dots-olive relative overflow-hidden flex flex-col items-center justify-center pt-28 pb-16 px-10">
             <div className="relative mb-8">
               <span className="star-shape w-7 h-7 absolute -top-3 -left-4 twinkle" />
-              <span className="scallop-note inline-block font-display text-xl text-[#3E2A1C] px-6 py-2">
+              <span className="scallop-note inline-block font-display text-3xl text-[#3E2A1C] px-8 py-3">
                 La Nina Cantika Aghna K.
               </span>
             </div>
 
             <div className="relative">
-              <div className="polaroid w-72 lg:w-80 -rotate-1">
+              <div className="polaroid w-80 lg:w-96 -rotate-1">
                 <div className="relative w-full aspect-square overflow-hidden">
                   <Image
-                    src="/assets/Layer_15.png"
+                    src="/assets/imageprofile.png"
                     alt="La Nina's portrait"
                     fill
-                    sizes="(max-width: 1024px) 288px, 320px"
+                    sizes="(max-width: 1024px) 320px, 384px"
                     className="object-cover"
                   />
                 </div>
               </div>
-              <span className="absolute -bottom-3 right-6 text-2xl text-[#3E2A1C]">☆</span>
+              <span className="absolute -bottom-3 right-6 text-5xl text-[#3E2A1C]">☆</span>
               <div className="wax-seal w-16 h-16 absolute -bottom-8 -left-8">
                 <Image src="/assets/Layer_9.png" alt="Clover seal" width={36} height={36} />
               </div>
@@ -60,7 +61,7 @@ export default function AboutPage() {
 
           {/* Right: bio panel */}
           <div
-            className="relative overflow-hidden pt-28 pb-16 px-10 lg:px-16 flex flex-col justify-center"
+            className="relative overflow-hidden pt-28 pb-24 px-10 lg:px-16 flex flex-col justify-start"
             style={{ background: "var(--cream)" }}
           >
             <Image
@@ -98,20 +99,35 @@ export default function AboutPage() {
               ))}
             </div>
 
-            <div className="flex gap-4">
-              {tools.map(({ label, abbr, bg, color, border }) => (
+            <div className="flex gap-4 mb-10">
+              {[
+                { src: "/assets/icon01.png", label: "Tool 1" },
+                { src: "/assets/icon02.png", label: "Tool 2" },
+                { src: "/assets/icon03.png", label: "Tool 3" },
+                { src: "/assets/icon04.png", label: "Tool 4" },
+              ].map(({ src, label }) => (
+                <Image key={label} src={src} alt={label} width={56} height={56} className="object-contain" />
+              ))}
+            </div>
+
+            <div className="flex items-center gap-3 mb-2">
+              <h2 className="font-display text-4xl text-[#3E2A1C]">Pengalaman</h2>
+              <span className="star-shape w-6 h-6 twinkle" />
+            </div>
+            <div className="w-32 h-0.75 mb-6" style={{ background: "var(--brown)" }} />
+
+            <div className="space-y-0 max-w-md">
+              {experiences.map(({ period, place, roles }, i) => (
                 <div
-                  key={label}
-                  title={label}
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center font-display text-xl font-bold"
-                  style={{
-                    background: bg,
-                    color,
-                    border: border ? `1px solid ${border}` : undefined,
-                    boxShadow: "2px 3px 0 rgba(74,58,42,0.18)",
-                  }}
+                  key={i}
+                  className="py-3 border-b"
+                  style={{ borderColor: "rgba(74,58,42,0.15)" }}
                 >
-                  {abbr}
+                  <div className="flex items-baseline gap-3 flex-wrap">
+                    <span className="font-mono text-xs text-[#5E6B33] tracking-widest">{period}</span>
+                    <span className="font-display text-lg text-[#3E2A1C]">{place}</span>
+                  </div>
+                  <p className="text-sm text-[#4A3B2A] mt-0.5" style={{ fontWeight: 300 }}>{roles}</p>
                 </div>
               ))}
             </div>
@@ -125,6 +141,7 @@ export default function AboutPage() {
             />
           </div>
         </section>
+
       </main>
       <Footer />
     </>

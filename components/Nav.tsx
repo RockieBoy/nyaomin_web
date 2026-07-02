@@ -19,11 +19,6 @@ export function Nav() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  // The contact page has a dark brown background, so while the header is
-  // transparent (not scrolled) the default brown nav text blends into it.
-  // Swap the hover/active color to gold so links still light up on approach.
-  const onDarkBg = pathname === "/contact" && !scrolled;
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -40,14 +35,8 @@ export function Nav() {
             <Link
               key={href}
               href={href}
-              className={`capitalize transition-colors ${
-                onDarkBg ? "hover:text-[#F0C878]" : "hover:text-[#5A3A26]"
-              } ${
-                pathname === href
-                  ? onDarkBg
-                    ? "text-[#F0C878] font-semibold"
-                    : "text-[#5A3A26] font-semibold"
-                  : ""
+              className={`capitalize transition-colors hover:text-[#5A3A26] ${
+                pathname === href ? "text-[#5A3A26] font-semibold" : ""
               }`}
             >
               {label}
